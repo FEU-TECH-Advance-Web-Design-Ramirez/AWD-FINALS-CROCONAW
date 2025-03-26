@@ -211,3 +211,85 @@ color: #4B5320;
     color: #4b5320;
     }
 
+
+/* Footer */
+footer {
+    background-color: #4B5320;
+    color: #FB8143;
+    padding: 30px;
+    }
+    
+    .footer-content {
+    display: flex;
+    justify-content: space-between; /* Keeps logo on the left and sections on the right */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    }
+    
+    .footer-content p {
+    font-size: 18px;
+    }
+    
+    .footer-logo {
+    flex: 1; /* Takes available space on the left */
+    display: flex;
+    flex-direction: column; /* Stacks logo and text */
+    align-items: flex-start; /* Aligns text to the left */
+    justify-content: flex-start; /* Removes extra space above text */
+    margin-bottom: 0; /* Ensures no margin below the logo */
+    }
+    
+    .footer-logo img {
+    height: 140px;
+    }
+    
+    .footer-logo p {
+    margin: 0; /* Removes any margin around the copyright text */
+    padding: 0; /* Ensures no extra padding */
+    margin-left: 15px;
+    font-size: 16px;
+    }
+    
+    .footer-sections {
+    display: flex;
+    gap: 10px; /* Adds spacing between sections */
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    }
+    
+    .footer-section {
+    min-width: 150px;
+    }
+    
+    .footer-heading {
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    }
+    
+    .footer-links {
+    list-style: none;
+    }
+    
+    .footer-links li {
+    margin-bottom: 16px;
+    font-size: 16px;
+    }
+    
+    .footer-links a {
+    color: #FB8143;
+    text-decoration: none;
+    }
+    
+    .social-links {
+    display: flex;
+    gap: 15px;
+    }
+    
+    .social-links a {
+    color: #FB8143;
+    font-size: 20px;
+    }
+
+
