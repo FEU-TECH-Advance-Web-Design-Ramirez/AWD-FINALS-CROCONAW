@@ -446,6 +446,7 @@ color: #FB8143;
 font-size: 20px;
 }
 
+
 /* Media Queries for Responsiveness */
 @media screen and (max-width: 1200px) {
 /* Header Adjustments */
@@ -614,7 +615,7 @@ nav ul li {
 
 /* Slider Controls for Mobile */
 .slider-controls {
-    display: none; /* Optional: hide slider controls on mobile */
+    display: none;
 }
 }
 
