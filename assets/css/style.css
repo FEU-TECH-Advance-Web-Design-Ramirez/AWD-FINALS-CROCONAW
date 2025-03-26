@@ -445,3 +445,197 @@ gap: 15px;
 color: #FB8143;
 font-size: 20px;
 }
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1200px) {
+/* Header Adjustments */
+header {
+    flex-direction: column;
+    padding: 10px;
+}
+
+.nav-left {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.logo img {
+    height: 80px;
+}
+
+nav ul {
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.search-container {
+    width: 90%;
+    max-width: 500px;
+    margin: 10px 0;
+}
+
+.nav-right {
+    margin-top: 10px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 0 50px;
+    text-align: center;
+    height: auto;
+    min-height: 400px;
+}
+
+.hero h1 {
+    font-size: 48px;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 100%;
+}
+
+/* Features Section */
+.features {
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 32px;
+}
+
+.feature p {
+    font-size: 18px;
+}
+
+/* Projects Section */
+.project-categories {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.project-items {
+    justify-content: center;
+}
+
+.project-item {
+    width: calc(50% - 20px);
+}
+
+/* Testimonials */
+.testimonials {
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonial {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Footer */
+.footer-content {
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo {
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-sections {
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    justify-content: center;
+    width: 100%;
+}
+}
+
+@media screen and (max-width: 768px) {
+/* More Aggressive Mobile Adjustments */
+.logo img {
+    height: 60px;
+}
+
+nav ul {
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+.hero h1 {
+    font-size: 36px;
+}
+
+.hero p {
+    font-size: 16px;
+}
+
+.project-item {
+    width: 100%;
+}
+
+.btn {
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.section-title {
+    font-size: 48px;
+}
+
+.project-category .category-title {
+    font-size: 32px;
+}
+
+.social-links {
+    justify-content: center;
+    width: 100%;
+}
+
+/* Slider Controls for Mobile */
+.slider-controls {
+    display: none; /* Optional: hide slider controls on mobile */
+}
+}
+
+@media screen and (max-width: 480px) {
+.hero {
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 28px;
+}
+
+.hero p {
+    font-size: 14px;
+}
+
+.section-title {
+    font-size: 36px;
+}
+
+.footer-section {
+    min-width: 100%;
+}
+}
