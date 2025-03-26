@@ -101,45 +101,45 @@ Description of the project in details.
 
 ```
 AWD-FINALS-CROCONAW
-└─ assets
-|   └─ css
-|   |   └─ style.css
-|   └─ img
-|   |   └─ PinoyFix.jpeg/.jpg/.webp/.png
-|   └─ js
-|       └─ script.js
-└─ pages
-|  └─ page1
-|     └─ assets
-|     |  └─ css
-|     |  |  └─ style.css
-|     |  └─ img
-|     |  |  └─ fileWith.jpeg/.jpg/.webp/.png
-|     |  └─ js
-|     |     └─ script.js
-|     └─ index.html
-|     └─page2
-|     └─ assets
-|     |  └─ css
-|     |  |  └─ style.css
-|     |  └─ img
-|     |  |  └─ fileWith.jpeg/.jpg/.webp/.png
-|     |  └─ js
-|     |     └─ script.js
-|     └─ index.html
-|     └─page3
-|     └─ assets
-|     |  └─ css
-|     |  |  └─ style.css
-|     |  └─ img
-|     |  |  └─ fileWith.jpeg/.jpg/.webp/.png
-|     |  └─ js
-|     |     └─ script.js
-|     └─ index.html
-└─ index.html
-└─LICENSE
-└─plan.md
-└─ readme.md
+├── assets
+│   ├── css
+|   |   ├── style.css
+│   ├── img
+│   │   ├── andrew pic.jpg
+│   │   ├── jerome pic.jpg
+│   │   ├── lourd picc.jpg
+│   │   ├── nyebe_white.png
+│   │   ├── PinoyFix-logo.png
+│   │   ├── skob pic.jpg
+│   ├── js
+|   |   ├──scripts.js
+├── pages
+│   ├── page1
+│   │   ├── assets
+│   │   │   ├── css
+│   │   │   │   ├── style.css
+│   │   │   ├── js
+|   |   |   |   ├──scripts.js
+│   │   ├── index.html
+│   ├── page2
+│   │   ├── assets
+│   │   │   ├── css
+│   │   │   │   ├── style.css
+│   │   │   ├── js
+|   |   |   |   ├──scripts.js
+│   │   ├── index.html
+│   ├── page3
+│   │   ├── assets
+│   │   │   ├── css
+│   │   │   │   ├── style.css
+│   │   │   ├── js
+|   |   |   |   ├──scripts.js
+│   │   ├── index.html
+├── index.html
+├── LICENSE
+├── plan.md
+├── readme.md
+
 ```
 
 ## Resources
