@@ -6,7 +6,7 @@
 <div align="center">
   <a href="https://github.com/FEU-TECH-Advance-Web-Design-Ramirez/AWD-FINALS-CROCONAW">
   <!-- TODO: If you want to add logo or banner you can add it here -->
-    <img src="./assets/img/nyebe_white.png" alt="Nyebe" width="130" height="100">
+    <img src="./assets/img/PinoyFix.jpg" alt="PinoyFix" width="130" height="100">
   </a>
 <!-- TODO: Change Title to the name of the title of your Project -->
   <h3 align="center">PinoyFix</h3>
@@ -100,16 +100,34 @@ Description of the project in details.
 7. File Structure to follow below.
 
 ```
-WD-ProjectName
+AWD-FINALS-CROCONAW
 └─ assets
 |   └─ css
 |   |   └─ style.css
 |   └─ img
-|   |   └─ fileWith.jpeg/.jpg/.webp/.png
+|   |   └─ PinoyFix.jpeg/.jpg/.webp/.png
 |   └─ js
 |       └─ script.js
 └─ pages
-|  └─ pageName
+|  └─ page1
+|     └─ assets
+|     |  └─ css
+|     |  |  └─ style.css
+|     |  └─ img
+|     |  |  └─ fileWith.jpeg/.jpg/.webp/.png
+|     |  └─ js
+|     |     └─ script.js
+|     └─ index.html
+|     └─page2
+|     └─ assets
+|     |  └─ css
+|     |  |  └─ style.css
+|     |  └─ img
+|     |  |  └─ fileWith.jpeg/.jpg/.webp/.png
+|     |  └─ js
+|     |     └─ script.js
+|     └─ index.html
+|     └─page3
 |     └─ assets
 |     |  └─ css
 |     |  |  └─ style.css
@@ -119,6 +137,8 @@ WD-ProjectName
 |     |     └─ script.js
 |     └─ index.html
 └─ index.html
+└─LICENSE
+└─plan.md
 └─ readme.md
 ```
 
