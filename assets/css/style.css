@@ -615,7 +615,7 @@ nav ul li {
 
 /* Slider Controls for Mobile */
 .slider-controls {
-    display: none; /* Optional: hide slider controls on mobile */
+    display: none;
 }
 }
 
