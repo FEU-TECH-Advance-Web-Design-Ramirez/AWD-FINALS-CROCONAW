@@ -15,8 +15,8 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="projectspage.html">Projects</a></li>
-                    <li><a href="aboutuspage.html">About Us</a></li>
+                    <li><a href="">Projects</a></li>
+                    <li><a href="../page1/index.html">About Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -27,9 +27,94 @@
         </div>
 
         <div class="nav-right">
-            <a href="loginpage.html"><button class="btn btn-secondary">Sign In</button></a>
-            <a href="loginpage.html"><button class="btn btn-primary">Sign Up</button></a>
+            <a href="../page2/index.html"><button class="btn btn-secondary">Sign In</button></a>
+            <a href="../page2/index.html"><button class="btn btn-primary">Sign Up</button></a>
         </div>
     </header>
+
+
+    <div class="content-wrapper">
+        <div class="category-filter">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="renovation">Renovation</button>
+            <button data-filter="furniture">Furniture</button>
+            <button data-filter="electrical">Electrical & Lighting</button>
+        </div>
+
+        <div class="project-grid" id="projectGrid">
+            <!-- Renovation Projects -->
+            <div class="project-card" data-category="renovation">
+                <img src="../../assets/img/Stair Remodel.jpg" alt="Stair Remodel">
+                <div class="project-card-content">
+                    <h3>Stair Remodel</h3>
+                    <p>by View in Home Improvement</p>
+                </div>
+            </div>
+            <div class="project-card" data-category="renovation">
+                <img src="../../assets/img/Powder room renovation.jpg" alt="DIY Power Room Renovation">
+                <div class="project-card-content">
+                    <h3>DIY Power Room Renovation</h3>
+                    <p>Description of second product</p>
+                </div>
+            </div>
+            <div class="project-card" data-category="renovation">
+                <img src="../../assets/img/Installing laminate flooring.jpg" alt="Installing Laminate Flooring">
+                <div class="project-card-content">
+                    <h3>Installing Laminate Flooring</h3>
+                    <p>Description of fourth product</p>
+                </div>
+            </div>
+
+            <!-- Furniture Projects -->
+            <div class="project-card" data-category="furniture">
+                <img src="../../assets/img/Custom birch ply.jpg" alt="Custom Birch Ply">
+                <div class="project-card-content">
+                    <h3>Custom Birch Ply</h3>
+                    <p>Description of third product</p>
+                </div>
+            </div>
+            <div class="project-card" data-category="furniture">
+                <img src="../../assets/img/custom stencil.jpeg" alt="Custom Stencil">
+                <div class="project-card-content">
+                    <h3>Custom Stencil</h3>
+                    <p>Description of fifth product</p>
+                </div>
+            </div>
+            <div class="project-card" data-category="furniture">
+                <img src="./PinoyFix-logo.png" alt="Renew Teak Garden">
+                <div class="project-card-content">
+                    <h3>Renew Teak Garden</h3>
+                    <p>Description of third product</p>
+                </div>
+            </div>
+
+            <!-- Electrical Projects -->
+            <div class="project-card" data-category="electrical">
+                <img src="./PinoyFix-logo.png" alt="A Quick Battery Holder">
+                <div class="project-card-content">
+                    <h3>A Quick Battery Holder</h3>
+                    <p>Description of sixth product</p>
+                </div>
+            </div>
+            <div class="project-card" data-category="electrical">
+                <img src="./PinoyFix-logo.png" alt="Awesome Electrical Fighting Helicopter">
+                <div class="project-card-content">
+                    <h3>Awesome Electrical Fighting Helicopter</h3>
+                    <p>Description of sixth product</p>
+                </div>
+            </div>
+            <div class="project-card" data-category="electrical">
+                <img src="./PinoyFix-logo.png" alt="Fake Electrical Outlet">
+                <div class="project-card-content">
+                    <h3>Fake Electrical Outlet</h3>
+                    <p>Description of sixth product</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./assets/js/scripts.js"></script>
+
 </body>
 </html>
