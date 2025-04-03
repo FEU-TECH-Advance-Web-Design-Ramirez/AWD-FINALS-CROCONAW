@@ -63,7 +63,7 @@ function updateHeaderForLoggedInUser(user) {
     postButton.className = 'btn btn-primary';
     postButton.textContent = 'Post';
     postButton.onclick = function() {
-        window.location.href = 'createpostpage.html';
+        window.location.href = '../../../page4/index.html';
     };
 
     // Create user icon button with click event to toggle the user menu
