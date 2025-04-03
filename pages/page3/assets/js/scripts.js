@@ -1,4 +1,19 @@
-// Function to toggle the user menu on the Home page
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if user is logged in
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+        updateHeaderForLoggedInUser(currentUser);
+    }
+
+    // Get all published projects from localStorage
+    loadProjects();
+
+    // Add event listeners to category links
+    setupCategoryFilters();
+});
+
+// Function to toggle the user menu
 function toggleUserMenu(user) {
     const existingMenu = document.getElementById('user-menu');
     if (existingMenu) {
@@ -30,13 +45,11 @@ function toggleUserMenu(user) {
 
 // Navigation functions for the user menu
 function navigateToProfile() {
-    // Adjust the destination as needed
     window.location.href = 'profile.html';
 }
 
 function logout() {
     localStorage.removeItem('currentUser');
-    // Optionally, redirect to the login page
     window.location.href = 'landingpage.html';
 }
 
@@ -50,7 +63,6 @@ function updateHeaderForLoggedInUser(user) {
     postButton.className = 'btn btn-primary';
     postButton.textContent = 'Post';
     postButton.onclick = function() {
-        // Navigate to your post creation page (adjust the URL as needed)
         window.location.href = 'createpostpage.html';
     };
 
@@ -59,7 +71,6 @@ function updateHeaderForLoggedInUser(user) {
     userButton.className = 'btn btn-secondary';
     userButton.innerHTML = '<i class="fas fa-user"></i>';
     userButton.onclick = function(e) {
-        // Stop event propagation to avoid closing the menu immediately
         e.stopPropagation();
         toggleUserMenu(user);
     };
@@ -68,58 +79,98 @@ function updateHeaderForLoggedInUser(user) {
     navRight.appendChild(userButton);
 }
 
-// Function to filter projects based on category
-function filterProjects(filter) {
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    projectCards.forEach(card => {
-        if (filter === 'all' || card.dataset.category === filter) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
+// Function to load projects from localStorage
+function loadProjects() {
+    const projectsContainer = document.querySelector('.projects-container');
+    const savedProjects = JSON.parse(localStorage.getItem('publishedProjects')) || [];
+
+    // Keep existing hardcoded projects, only add new ones from localStorage
+    const existingProjects = projectsContainer.querySelectorAll('.project-card');
+    const existingTitles = new Set([...existingProjects].map(proj => proj.querySelector('.project-title').textContent));
+
+    // Then load saved projects from localStorage
+    savedProjects.forEach(project => {
+        if (!existingTitles.has(project.title)) {
+            createProjectCard(project, projectsContainer);
         }
     });
+
+    // After loading, setup filters again
+    setupCategoryFilters();
 }
 
-// Function to handle search
-function searchProjects() {
-    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+// Function to create a project card
+function createProjectCard(project, container) {
+    const projectCard = document.createElement('div');
+    projectCard.className = 'project-card';
+    projectCard.dataset.category = project.category || 'uncategorized'; // Ensure there's always a category
+    
+    projectCard.innerHTML = `
+        <div class="project-image">
+            <img src="PinoyFix-logo.png" alt="${project.title}">
+        </div>
+        <div class="project-info">
+            <h3 class="project-title">${project.title}</h3>
+            <p class="project-author">${project.author || 'Anonymous'}</p>
+        </div>
+    `;
+    
+    projectCard.addEventListener('click', function() {
+        window.location.href = `projectdetail.html?id=${project.id}`;
+    });
+    
+    container.appendChild(projectCard);
+}
+
+// Get the current user
+function getCurrentUser() {
+    return JSON.parse(localStorage.getItem('currentUser'));
+}
+
+// Setup category filters
+function setupCategoryFilters() {
+    const categoryLinks = document.querySelectorAll('.category-link');
     const projectCards = document.querySelectorAll('.project-card');
     
-    projectCards.forEach(card => {
-        const title = card.querySelector('h3').textContent.toLowerCase();
-        const description = card.querySelector('p').textContent.toLowerCase();
-        
-        if (title.includes(searchInput) || description.includes(searchInput)) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
-
-// Initialize the page
-document.addEventListener('DOMContentLoaded', () => {
-    // Set up filter buttons
-    const filterButtons = document.querySelectorAll('.category-filter button');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
             
-            // Add active class to clicked button
-            button.classList.add('active');
+            // Remove active class from all links
+            categoryLinks.forEach(l => l.classList.remove('active'));
             
-            // Get filter category and apply filtering
-            const filter = button.dataset.filter;
-            filterProjects(filter);
+            // Add active class to clicked link
+            this.classList.add('active');
+            
+            // Get the category to filter by
+            const category = this.textContent.trim();
+            
+            // Map display text to actual category values
+            const categoryMap = {
+                'All': 'all',
+                'Renovation': 'renovation',
+                'Furniture': 'furniture',
+                'Electrical & Lighting': 'electrical-lighting'
+            };
+            
+            const filterValue = categoryMap[category] || 'all';
+            
+            // Show/hide projects based on category
+            projectCards.forEach(card => {
+                if (filterValue === 'all' || card.dataset.category === filterValue) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         });
     });
-    
-    // Check if a user is logged in and update the header accordingly
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (currentUser) {
-        updateHeaderForLoggedInUser(currentUser);
+}
+
+// Function to handle the publish event from create post page
+window.addEventListener('storage', function(e) {
+    // Check if the published project data was updated
+    if (e.key === 'publishedProjects') {
+        loadProjects();
     }
 });
