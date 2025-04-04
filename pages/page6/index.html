@@ -32,5 +32,49 @@
             <a href="../../pages/page2/index.html"><button class="btn btn-primary">Sign Up</button></a>
         </div>
     </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <main>
+            <article class="tutorial" id="project-details">
+                <h1 id="project-title">Project Title</h1>
+                <div class="article-meta">
+                    <p id="project-author">Author Name</p>
+                    <div class="article-actions">
+                        <button class="favorite-btn"><i class="fa-regular fa-heart"></i>Add to Bookmarks</button>
+                        <button class="made-it-btn"><i class="fa-regular fa-thumbs-up"></i>Like</button>
+                    </div>
+                </div>
+
+                <p class="intro" id="project-introduction">
+                    Project introduction text goes here...
+                </p>
+
+                <div class="materials-section">
+                    <h2>MATERIALS</h2>
+                    <div id="project-supplies">
+                        <!-- Supplies will be loaded here dynamically -->
+                    </div>
+                </div>
+
+                <div class="steps-section" id="project-steps">
+                    <!-- Steps will be loaded here dynamically -->
+                </div>
+
+                <div class="comment-container">
+                    <div class="comment-section">
+                        <h3 class="comment-heading">Comment:</h3>
+                        <div class="comment-input-area">
+                            <textarea id="comment-text" placeholder="Leave a comment"></textarea>
+                            <button id="submit-comment" class="comment-btn">Enter</button>
+                        </div>
+                        <div id="comments-list" class="comments-list">
+                            <p class="no-comments">No comments yet. Be the first to comment!</p>
+                        </div>
+                    </div>
+                </div>
+        </main>
+    </div>
+    <script src="./assets/js/scripts.js"></script>
     </body>
     </html>
