@@ -66,7 +66,7 @@ function validateLogin() {
         updateUIAfterLogin(user);
         alert('Login successful! Welcome back, ' + user.username);
         // Redirect to Home page after login
-        window.location.href = 'landingpage.html';
+        window.location.href = '../../index.html';
     } else {
         alert('Invalid email or password');
     }
@@ -83,7 +83,7 @@ function updateUIAfterLogin(user) {
     postButton.textContent = 'Post';
     postButton.onclick = function() {
         // Redirect to post creation page (adjust URL as needed)
-        window.location.href = 'create-post.html';
+        window.location.href = '../../../../pages/page4/index.html';
     };
     
     // Create user icon button to toggle the user menu
