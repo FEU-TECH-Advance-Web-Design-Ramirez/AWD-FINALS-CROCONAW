@@ -70,7 +70,11 @@ function updateHeaderForLoggedInUser(user) {
 
 // On page load, check if a user is logged in and update the header accordingly
 document.addEventListener('DOMContentLoaded', function() {
-    // Get the search input and button elements
+
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+        updateHeaderForLoggedInUser(currentUser);
+    }
     const searchInput = document.querySelector('.search-container input');
     const searchButton = document.querySelector('.search-container button');
     
