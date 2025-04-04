@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Project published successfully!');
         
         // Redirect to the projects page
-        window.location.href = 'projectspage.html';
+        window.location.href = '../../../../pages/page3/index.html';
     });
     
     // Function to save project to localStorage
