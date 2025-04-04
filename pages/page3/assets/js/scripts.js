@@ -50,7 +50,7 @@ function navigateToProfile() {
 
 function logout() {
     localStorage.removeItem('currentUser');
-    window.location.href = 'landingpage.html';
+    window.location.href = '../../../../index.html';
 }
 
 // Function to update the header for a logged-in user
@@ -116,7 +116,7 @@ function createProjectCard(project, container) {
     `;
     
     projectCard.addEventListener('click', function() {
-        window.location.href = `projectdetail.html?id=${project.id}`;
+        window.location.href = `../../../../pages/page6/index.html?id=${project.id}`;
     });
     
     container.appendChild(projectCard);

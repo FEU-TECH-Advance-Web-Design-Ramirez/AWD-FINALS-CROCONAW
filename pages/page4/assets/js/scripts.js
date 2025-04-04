@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Navigation functions for the user menu
     window.navigateToProfile = function() {
-        window.location.href = 'profile.html';
+        window.location.href = '../../../../pages/page5/index.html';
     };
 
     window.logout = function() {
