@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-// Comprehensive search functionality for About Us page
-=======
 // Function to toggle the user menu on the Home page
 function toggleUserMenu(user) {
     const existingMenu = document.getElementById('user-menu');
@@ -72,7 +69,6 @@ function updateHeaderForLoggedInUser(user) {
 }
 
 // On page load, check if a user is logged in and update the header accordingly
->>>>>>> 8096bfe4f43c742e0698f59966e4a8d9a8cbe94d
 document.addEventListener('DOMContentLoaded', function() {
     // Get the search input and button elements
     const searchInput = document.querySelector('.search-container input');
