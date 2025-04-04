@@ -11,13 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (projectId) {
         loadProjectDetails(projectId);
+        // Load comments for this project
+        loadComments(projectId);
     }
     
     // Set up favorite and "I made it" buttons
     setupActionButtons();
     
     // Set up comment submission
-    setupCommentSubmission();
+    setupCommentSubmission(projectId);
 });
 
 function loadProjectDetails(projectId) {
@@ -70,6 +72,40 @@ function loadProjectDetails(projectId) {
     }
 }
 
+function loadComments(projectId) {
+    const commentsList = document.getElementById('comments-list');
+    
+    // Get all comments from localStorage
+    const allComments = JSON.parse(localStorage.getItem('projectComments')) || {};
+    
+    // Get comments for this specific project
+    const projectComments = allComments[projectId] || [];
+    
+    // Clear current comments display
+    commentsList.innerHTML = '';
+    
+    if (projectComments.length === 0) {
+        commentsList.innerHTML = '<p class="no-comments">No comments yet. Be the first to comment!</p>';
+        return;
+    }
+    
+    // Display each comment
+    projectComments.forEach(comment => {
+        const commentDiv = document.createElement('div');
+        commentDiv.className = 'comment-item';
+        
+        commentDiv.innerHTML = `
+            <div class="comment-info">
+                <span class="comment-author">${comment.author}</span>
+                <span class="comment-date">${comment.date}</span>
+            </div>
+            <div class="comment-content">${comment.text}</div>
+        `;
+        
+        commentsList.appendChild(commentDiv);
+    });
+}
+
 function setupActionButtons() {
     const favoriteButton = document.querySelector('.favorite-btn');
     const madeItButton = document.querySelector('.made-it-btn');
@@ -93,44 +129,69 @@ function setupActionButtons() {
     }
 }
 
-function setupCommentSubmission() {
+function setupCommentSubmission(projectId) {
     const commentForm = document.querySelector('.comment-input-area');
-    const commentsList = document.getElementById('comments-list');
     
-    if (commentForm) {
+    if (commentForm && projectId) {
         const submitButton = commentForm.querySelector('.comment-btn');
         const textarea = commentForm.querySelector('textarea');
         
-        submitButton.addEventListener('click', function() {
+        // Function to submit the comment
+        const submitComment = function() {
             const commentText = textarea.value.trim();
             
             if (commentText) {
-                // Remove "no comments" message if it exists
-                const noComments = commentsList.querySelector('.no-comments');
-                if (noComments) {
-                    noComments.remove();
-                }
-                
-                // Create new comment element
-                const commentDiv = document.createElement('div');
-                commentDiv.className = 'comment-item';
-                
+                // Get current user
                 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
                 const username = currentUser ? currentUser.username : 'Anonymous';
+                const date = new Date().toLocaleDateString();
                 
-                commentDiv.innerHTML = `
-                    <div class="comment-info">
-                        <span class="comment-author">${username}</span>
-                        <span class="comment-date">${new Date().toLocaleDateString()}</span>
-                    </div>
-                    <div class="comment-content">${commentText}</div>
-                `;
+                // Create new comment object
+                const newComment = {
+                    author: username,
+                    date: date,
+                    text: commentText
+                };
                 
-                commentsList.appendChild(commentDiv);
+                // Add comment to localStorage
+                saveComment(projectId, newComment);
+                
+                // Reload comments to display the new one
+                loadComments(projectId);
+                
+                // Clear textarea
                 textarea.value = '';
+            }
+        };
+        
+        // Submit when clicking the button
+        submitButton.addEventListener('click', submitComment);
+        
+        // Submit when pressing Enter (without Shift)
+        textarea.addEventListener('keydown', function(e) {
+            // Check if Enter was pressed without Shift
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault(); // Prevent default behavior (newline)
+                submitComment();
             }
         });
     }
+}
+
+function saveComment(projectId, comment) {
+    // Get current comments
+    const allComments = JSON.parse(localStorage.getItem('projectComments')) || {};
+    
+    // Initialize array for this project if it doesn't exist
+    if (!allComments[projectId]) {
+        allComments[projectId] = [];
+    }
+    
+    // Add new comment
+    allComments[projectId].push(comment);
+    
+    // Save back to localStorage
+    localStorage.setItem('projectComments', JSON.stringify(allComments));
 }
 
 function updateHeaderForLoggedInUser(user) {
