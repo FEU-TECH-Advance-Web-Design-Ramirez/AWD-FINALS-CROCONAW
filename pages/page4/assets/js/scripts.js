@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.logout = function() {
         localStorage.removeItem('currentUser');
-        window.location.href = 'landingpage.html';
+        window.location.href = '../../../../index.html';
     };
 
     // Function to update the header for a logged-in user
