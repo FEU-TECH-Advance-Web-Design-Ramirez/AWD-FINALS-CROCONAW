@@ -127,4 +127,65 @@ document.addEventListener('DOMContentLoaded', function() {
     if (currentUser) {
         updateHeaderForLoggedInUser(currentUser);
     }
+
+    const username = document.getElementById('username');
+const usernameInput = document.getElementById('username-input');
+const editBtn = document.getElementById('edit-btn');
+const saveBtn = document.getElementById('save-btn');
+
+// Edit button click event
+editBtn.addEventListener('click', function() {
+    username.style.display = 'none';
+    usernameInput.style.display = 'block';
+    usernameInput.value = username.textContent;
+    editBtn.style.display = 'none';
+    saveBtn.style.display = 'block';
+    usernameInput.focus();
 });
+
+// Save button click event
+saveBtn.addEventListener('click', function() {
+    const newUsername = usernameInput.value.trim();
+    if (newUsername) {
+        username.textContent = newUsername;
+    }
+    username.style.display = 'block';
+    usernameInput.style.display = 'none';
+    editBtn.style.display = 'block';
+    saveBtn.style.display = 'none';
+    
+    // You could add an API call here to save the username to a database
+    const users = JSON.parse(localStorage.getItem('currentUser'));
+    users.username = newUsername;
+    localStorage.setItem('currentUser', JSON.stringify(users));
+    updateUserDatabase(users.id, newUsername);
+});
+
+// Also save when pressing Enter key
+usernameInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        saveBtn.click();
+    }
+});
+});
+
+async function updateUserDatabase (id,name){
+    try {
+        const response = await fetch('https://demo-api-skills.vercel.app/api/DIYHomes/users/'+id , {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name
+          })
+        });
+  
+        const data = await response.json();
+        if (response.ok){
+            alert('Rename Successfully!, ' + data.name);
+        }
+      } catch (error) {
+        alert('Error creating user:', error);
+      }
+}
