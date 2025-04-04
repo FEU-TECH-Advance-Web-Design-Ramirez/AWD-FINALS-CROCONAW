@@ -140,7 +140,7 @@ function toggleUserMenu(user) {
 // Navigation functions for the user menu
 function navigateToProfile() {
     // Redirect to profile page (adjust URL as needed)
-    window.location.href = 'profile.html';
+    window.location.href = '../../../../pages/page5/index.html';
 }
 
 // Function to handle logout and restore header buttons
