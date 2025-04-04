@@ -31,7 +31,7 @@ function toggleUserMenu(user) {
 // Navigation functions for the user menu
 function navigateToProfile() {
     // Adjust the destination as needed
-    window.location.href = 'profile.html';
+    window.location.href = '../../../../pages/page5/index.html';
 }
 
 function logout() {
@@ -51,7 +51,7 @@ function updateHeaderForLoggedInUser(user) {
     postButton.textContent = 'Post';
     postButton.onclick = function() {
         // Navigate to your post creation page (adjust the URL as needed)
-        window.location.href = 'createpostpage.html';
+        window.location.href = '../../../../pages/page4/index.html';
     };
 
     // Create user icon button with click event to toggle the user menu
